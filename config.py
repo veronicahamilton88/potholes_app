@@ -1,3 +1,3 @@
-password="sham0Let!"
-dbname="potholes"
-user="postgres"
+password="potholes_db"
+dbname="potholes_db"
+user="vee"
