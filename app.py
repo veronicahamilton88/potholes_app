@@ -10,6 +10,12 @@ cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
 conn_string = os.environ['DATABASE_URL']
+
+conn = create_engine(conn_string)
+
+pd.read_csv("data.csv").to_sql("potholes",conn)
+
+
 @app.route("/home")
 def home():
     return app.send_static_file('index.html')
@@ -19,9 +25,7 @@ def home():
 # print("\nShow me the databases:\n")
 # for row in rows:
 #     print("   ", row[9])
-# conn = create_engine(conn_string)
 
-# pd.read_csv("data.csv").to_sql("potholes",conn)
 
 @app.route("/")
 @cross_origin()
